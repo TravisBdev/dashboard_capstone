@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,4 +12,29 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-shadow: 0px 0px 20px #aaaaaa;
 }
+
+.main-container {
+  height: 100vh;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.crypto-weather-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* .author-container {
+
+} */
