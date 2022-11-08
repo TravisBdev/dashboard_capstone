@@ -16,12 +16,31 @@ async function getBackgroundImg() {
 }
 
 async function getPrice() {
-  const cryptoPrice = document.querySelector(".crypto");
-  const res = await fetch("https://api.coingecko.com/api/v3/coins/bitcoin");
-  const data = await res.json();
-  const currentPrice = data.market_data.current_price.usd;
-  cryptoPrice.textContent = `Bitcoin Price: $${currentPrice} usd`;
-  console.log(currentPrice);
+  try {
+    const cryptoContainer = document.querySelector(".crypto-container");
+    const cryptoPrice = document.querySelector(".crypto-price");
+    const bitcoinLogo = document.querySelector(".bitcoin-logo");
+    const res = await fetch("https://api.coingecko.com/api/v3/coins/bitcoin");
+    if (!res.ok) {
+      throw Error("Data not available at this time.");
+    }
+    const data = await res.json();
+    const currentPrice = data.market_data.current_price.usd;
+    cryptoContainer.innerHTML = `
+      <div class='crypto'>
+      <img src="${data.image.thumb}" alt="bitcoin price" />
+      <span class='crypto-price'>${data.name}: $${currentPrice}</span>
+      </div>
+      <div class='market-data'>
+        <p class='high-price'>24-Hour High: $${data.market_data.high_24h.usd}</p>
+        <p class='low-price'>24-Hour Low: $${data.market_data.low_24h.usd}</p>
+      </div>
+    `;
+    bitcoinLogo.src = data.image.thumb;
+  } catch (err) {
+    console.error(err);
+    cryptoPrice.textContent = "Not available at this time.";
+  }
 }
 
 getBackgroundImg();
