@@ -43,5 +43,8 @@ async function getPrice() {
   }
 }
 
+const time = new Date().toLocaleTimeString([], { timeStyle: "short" });
+document.querySelector(".time").textContent = time;
+
 getBackgroundImg();
 getPrice();
