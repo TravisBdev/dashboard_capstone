@@ -49,5 +49,22 @@ function time() {
 }
 setInterval(time, 1000);
 
+const options = {
+  enableHighAccuracy: true,
+  timeout: 10000,
+};
+
+const successfulCallback = (position) => {
+  console.log(position);
+};
+const errorCallback = (error) => {
+  console.log(error);
+};
+navigator.geolocation.getCurrentPosition(
+  successfulCallback,
+  errorCallback,
+  options
+);
+
 getBackgroundImg();
 getPrice();
