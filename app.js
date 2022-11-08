@@ -43,8 +43,11 @@ async function getPrice() {
   }
 }
 
-const time = new Date().toLocaleTimeString([], { timeStyle: "short" });
-document.querySelector(".time").textContent = time;
+function time() {
+  const time = new Date().toLocaleTimeString([], { timeStyle: "short" });
+  document.querySelector(".time").textContent = time;
+}
+setInterval(time, 1000);
 
 getBackgroundImg();
 getPrice();
