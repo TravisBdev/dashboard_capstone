@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
 
 * {
   box-sizing: border-box;
@@ -19,7 +19,7 @@ body {
 
 .main-container {
   height: 100vh;
-  padding: .5rem;
+  padding: .7rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,11 +28,31 @@ body {
 .crypto-weather-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .time-container {
   display: flex;
   justify-content: center;
+}
+
+.weather-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.weather-container p {
+  width: 100%;
+  text-align: end;
+  font-size: 1.2em;
+}
+
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
 }
 
 .crypto {
@@ -51,5 +71,12 @@ body {
 
 .time {
   font-size: 3.5em;
+  padding: 1rem;
+  border: 1px solid #fff;
+  box-shadow: 0px 0px 4px #fff
+}
+
+.author-name {
+  font-style: italic;
 }
 
