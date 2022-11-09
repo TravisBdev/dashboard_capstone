@@ -70,6 +70,14 @@ navigator.geolocation.getCurrentPosition((position) => {
     })
     .then((data) => {
       console.log(data);
+      const weatherContainer = document.querySelector(".weather-container");
+      weatherContainer.innerHTML = `
+        <img src='http://openweathermap.org/img/wn/${
+          data.weather[0].icon
+        }@2x.png' class='weather-icon'/>
+        <h2 class='temperature'>${Math.floor(data.main.temp)}°</h2>
+        <p class='city'>${data.name}</p>
+      `;
     })
     .catch((err) => console.error(error));
 });
